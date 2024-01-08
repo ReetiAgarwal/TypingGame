@@ -45,6 +45,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "[React](https://reactjs.org/) is a popular JavaScript library for building user interfaces.",
-  "proxy": "https://typechamp.onrender.com/api"
+  "description": "[React](https://reactjs.org/) is a popular JavaScript library for building user interfaces."
 }

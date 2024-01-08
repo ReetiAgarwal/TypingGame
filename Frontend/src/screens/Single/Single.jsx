@@ -1,6 +1,7 @@
 import axios from "axios";
 import { generate } from 'random-words';
 import React, { useContext, useEffect, useState } from "react";
+import { API_URL } from "../../assets/API/API_URL";
 import bg from "../../assets/option2.jpg";
 import Navbar from "../../components/Navbar/Navbar";
 import Popup from '../../components/popup/Popup';
@@ -31,7 +32,7 @@ const Single = () => {
       e.preventDefault();
       try
       {
-        await axios.put("/scores/score/"+user.name,{score:speed});
+        await axios.put(API_URL+"/scores/score/"+user.name,{score:speed});
       }
       catch(err){
         console.log(err);

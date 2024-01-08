@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { API_URL } from "../../assets/API/API_URL";
 import Navbar from "../../components/Navbar/Navbar";
 // import Card from "../components/Card";
 // import Single from "./Single";
@@ -10,7 +11,7 @@ export default function Leaderboard() {
 
   useEffect(() => {
     const loadData = async () => {
-      const scores = await axios.get("/scores/leaderboard");
+      const scores = await axios.get(API_URL+"/scores/leaderboard");
       setScore(scores.data);
     };
     loadData();

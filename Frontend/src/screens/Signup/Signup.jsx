@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { API_URL } from "../../assets/API/API_URL";
 import iconimage from '../../assets/Rectangle_11.png';
 import logo from '../../assets/logo.png';
 import './Signup.css';
@@ -29,7 +30,7 @@ export default function Signup() {
           password : password.current.value
         }
         try{
-          await axios.post("/auth/signup",userCredential);
+          await axios.post(API_URL+"/auth/signup",userCredential);
           navigate("/login")
         }catch(err){
           console.log(err);
