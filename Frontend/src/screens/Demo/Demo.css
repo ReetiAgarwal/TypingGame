@@ -5,16 +5,19 @@
   background-color: #14213d;
   color: white;
   padding: 3rem;
+  align-items : center;
 }
 .demo-head {
   font-family: "Orelega One";
   font-size: 3rem;
   /* color: rgb(219, 214, 214); */
   color: yellowgreen;
+  text-align:center;
 }
 .demo-head-content {
   width: 32rem;
   color: rgb(196, 196, 196);
+  text-align:center;
 }
 .demo-records {
   display: flex;
@@ -24,6 +27,8 @@
 .demo-record {
   display: flex;
   flex-direction: column;
+  align-items:center;
+  justify-content:center;
   font-size: 1rem;
 }
 .number {
@@ -50,6 +55,7 @@
 .demo-2-head {
   font-size: 3rem;
   font-family: "Orelega One";
+  text-align:center;
 }
 
 .demo-2-content {
@@ -69,8 +75,8 @@
   width: 4rem;
   height: 4rem;
   z-index: 2;
-  position: absolute;
-  top: 13rem;
+  /* position: absolute;
+  top: 13rem; */
 }
 .Para {
   color: white;
@@ -104,6 +110,7 @@
   font-family: "Orelega One";
   font-size: 3rem;
   color: yellowgreen;
+  text-align:center;
 }
 .demo-4-content-main {
   display: flex;
@@ -147,4 +154,29 @@
 
 .active{
   font-weight:bold;
+}
+
+.textDemo{
+  color:black;
+  font-weight:bold;
+}
+
+
+@media only screen and (max-width: 550px) {
+  .demo-head-content{
+    width:auto;
+  }
+  .demo-2-content {
+    width:auto;
+  }
+  .img-time{
+    width:3rem;
+    height:3rem;
+  }
+}
+
+@media only screen and (max-width: 1100px){
+  .demo-4-content-main {
+    flex-direction:column;
+  }
 }

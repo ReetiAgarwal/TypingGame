@@ -7,8 +7,9 @@
 .bg {
   background-size: cover;
   width: 100vw;
-  height: 100vh;
+  height: 130vh !important;
   position: relative;
+  overflow-y:scroll;
 }
 .single-content {
   position: absolute;
@@ -24,6 +25,7 @@
   font-size: 3rem;
   /* color: rgb(219, 214, 214); */
   color: #150000;
+  text-align:center;
 }
 .head2 {
   font-family: "libre Baskerville";
@@ -43,6 +45,7 @@
 
 .Data{
   display:flex;
+  flex-wrap : wrap;
   align-items:center;
 }
 
@@ -111,7 +114,7 @@
 }
 
 .ButtonGroup{
-  display:fles;
+  display:flex;
   justify-content:space-between;
 }
 
@@ -130,4 +133,16 @@
   border-radius:5px;
   padding:10px;
   font-weight:bold;
+}
+
+@media screen and (max-width: 700px) {
+  .bg{
+    height:200vh !important;
+  }
+}
+
+@media only screen and (min-width:700px) and (max-width: 1000px) {
+  .bg{
+    height:150vh !important;
+  }
 }

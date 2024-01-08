@@ -2,14 +2,15 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const scoreSchema = new Schema({
-  email: {
+  username: {
     type: String,
     required: true
   },
   score:{
-    type:Array
+    type:Number,
+    default: 0
   }
  
 })
 
-module.exports = Score = mongoose.model('Score', scoreSchema)
+module.exports = mongoose.model('Score', scoreSchema)

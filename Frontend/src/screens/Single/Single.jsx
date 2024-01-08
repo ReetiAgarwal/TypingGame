@@ -1,8 +1,10 @@
+import axios from "axios";
 import { generate } from 'random-words';
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import bg from "../../assets/option2.jpg";
 import Navbar from "../../components/Navbar/Navbar";
 import Popup from '../../components/popup/Popup';
+import { AuthContext } from '../../context/AuthContext';
 import "./Single.css";
 
 const NUMB_OF_WORDS = 20;
@@ -23,6 +25,19 @@ function Word(props){
 Word = React.memo(Word)
 
 const Single = () => {
+  const {user} = useContext(AuthContext);
+
+  const handleSubmit=async(e)=>{
+      e.preventDefault();
+      try
+      {
+        await axios.put("/scores/score/"+user.name,{score:speed});
+      }
+      catch(err){
+        console.log(err);
+      }
+  }
+
     const [cloud,setClouds] = useState([]);
     const [userInput,setUserInput] = useState("");
     const[startCounting,setStartCounting] = useState(false)
@@ -160,7 +175,9 @@ const Single = () => {
                 />
                 <div className="ButtonGroup">
                   <button className="start" onClick={start}>Start</button>
-                  <button className="submit" onClick={submit}>Submit</button>
+                  <form onSubmit={handleSubmit}>
+                    <button className="submit" onClick={submit}>Submit</button>
+                  </form>
                 </div>
             </div>
         </div>

@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 // import Demo from "../../components/Demo/Demo.jsx";
 import { Link } from "react-router-dom";
 import homeImg from "../../assets/homeImg.png";
-import img1 from "../../assets/img1.png";
+// import img1 from "../../assets/img1.png";
 // import img2 from "../../assets/img2.png";
 // import img3 from "../../assets/img3.png";
 import lowerImg from "../../assets/lower.png";
 import upperImg from "../../assets/upper.png";
+import { AuthContext } from "../../context/AuthContext";
 import "./Home.css";
 export default function Home() {
   // const navigate = useNavigate();
+  const {user} = useContext(AuthContext);
 
   return (
     <div>
@@ -18,15 +20,17 @@ export default function Home() {
         {" "}
         <Navbar />
       </div>
-
       <div className="home-body">
         <div className="home-top">
           <img src={homeImg} alt="" className="homeImg" />
           <h1 className="home-heading">
             Unleash your inner speedster.Challenge awaits.
           </h1>
-          <div>
-            {localStorage.getItem("authToken") ? (
+          {/* added a new div */}
+          <div className="modes">
+          {
+            user?
+            <div>
               <Link
                 className="nav-link active"
                 aria-current="page"
@@ -34,28 +38,14 @@ export default function Home() {
               >
                 <button className="user single">Single Mode</button>
               </Link>
-            ) : (
-              ""
-            )}
-          </div>
-
-          <div>
-            {localStorage.getItem("authToken") ? (
-              <Link className="nav-link active" aria-current="page" to="/">
-                <button className="user multi">Multi Mode</button>
-              </Link>
-            ) : (
-              ""
-            )}
-          </div>
-          <div>
-            {localStorage.getItem("authToken") ? (
-              ""
-            ) : (
+            </div>
+            :
+            <div>
               <Link to="/Demo" style={{ textDecoration: "none" }}>
                 <button className="demo try">Try Demo!</button>
               </Link>
-            )}
+            </div>
+          }
           </div>
         </div>
         <div className="home-1">
@@ -114,7 +104,7 @@ export default function Home() {
           <h1 className="feedback">Speak Your Mind</h1>
           <div className="feedback-container">
             <div className="feed">
-              <img src={img1} alt="" className="img" />
+              {/* <img src={img1} alt="" className="img" /> */}
               <div className="name">JASON REED</div>
               <div className="feedback-content">
                 I appreciated the clean and intuitive interface of the game. It

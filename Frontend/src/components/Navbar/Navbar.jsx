@@ -1,20 +1,29 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
+import { logout } from "../../apiCalls";
 import logo from "../../assets/logo.png";
+import { AuthContext } from "../../context/AuthContext";
 import "./Navbar.css";
+
 export default function Navbar() {
   const navigate = useNavigate();
+  const{user,isFetching,error,dispatch} = useContext(AuthContext)
+
   const handleLogout = () => {
-    localStorage.removeItem("authToken");
-    navigate("/login");
+    logout(dispatch);
+    navigate("/Login");
   };
+
+  // const {user} = useContext(AuthContext);
 
   return (
     <div>
       <nav>
         <div className="wrapper">
           <div>
-            {!localStorage.getItem("authToken") ? (
+            {/* {!localStorage.getItem("authToken") ? ( */}
+            {!user ? (
               <div className="nav-container">
                 <Link className="" to="/">
                   <img src={logo} alt="" className="logo" />
