@@ -9,17 +9,8 @@ const authRoute = require("./Routes/auth")
 const scoreRoute = require("./Routes/scores")
 
 dotenv.config();
-// mongoose.connect('mongodb://localhost:27017/social',{useNewUrlParser:true});
-mongoose.connect(process.env.MONGO_URL);
-
-// app.use((req,res,next)=>{
-//     res.setHeader("Acess-Control-Allow-Origin","http://localhost:3000");
-//     res.header(
-//         "Access-Control-Allow-Headers",
-//         "Origin, X-Requested-With, Content-Type, Accept" 
-//     );
-//     next();
-// })
+mongoose.connect('mongodb://localhost:27017/typing',{useNewUrlParser:true});
+// mongoose.connect(process.env.MONGO_URL);
 
 // app.get("/",(req,res)=>{
 //     res.send("HELLO server");

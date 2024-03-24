@@ -96,6 +96,10 @@
     border:2px solid #7ABBFA;
 }
 
+.LoginFormButton:disabled{
+    cursor: not-allowed;
+}
+
 .FormContainerLeft{
     margin-right:100px;
 }

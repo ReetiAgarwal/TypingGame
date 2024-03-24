@@ -1,4 +1,6 @@
 // import MoodIcon from '@mui/icons-material/Mood';
+// import CircularProgress from '@mui/material/CircularProgress';
+// import SyncIcon from '@mui/icons-material/Sync';
 import React, { useContext, useRef } from "react";
 import { Link } from "react-router-dom";
 import { loginCall } from "../../apiCalls";
@@ -18,7 +20,7 @@ export default function Login() {
     const p = password.current.value;
     loginCall({email:em,password:p},dispatch);
   }
-  
+
   return (
     <div>
       <div className="LoginPage">
@@ -57,10 +59,7 @@ export default function Login() {
                     // onChange={onChange}
                   />
                 </div>
-                <button type="submit" className="LoginFormButton">
-                  {" "}
-                  LOG IN
-                </button>
+                <button className='LoginFormButton' disabled={isFetching}>{isFetching? "loading" : "Log In"}</button>
               </div>
               <div className="FormContainerRight">
                 <div className="LoginButtonGroup">

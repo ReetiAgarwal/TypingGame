@@ -8,6 +8,10 @@ export const loginCall = async (userCredential,dispatch) => {
         const res = await axios.post(API_URL+"/auth/login",userCredential);
         dispatch({type:"LOGIN_SUCCESS",payload:res.data})
     }catch(err){
+        if(err.response.status===400)
+            alert("Wrong Password");
+        else
+            alert("User not registered")
         dispatch({type:"LOGIN_FAILURE",payload:err})
     }
 }

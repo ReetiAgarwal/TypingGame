@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 // import speed from "../../assets/speed.png";
 // import accuracy from "../../assets/accuracy.png";
 
+import Navbar from "../../components/Navbar/Navbar";
 import "./Demo.css";
 
 const getcloud = () =>
@@ -43,6 +44,7 @@ function Timer(props) {
         {/* <div className="inside"></div> */}
         <div className="time">
           {/* <img src={time} alt="" className="img-time" /> */}
+          <h5>Time</h5>
           <div className="score">{timeElapsed}</div>
         </div>
 
@@ -51,6 +53,7 @@ function Timer(props) {
       <div className="ScoreDetail">
         <div className="time">
           {/* <img src={speed} alt="" className="img-time" /> */}
+          <h5>Speed (wpm)</h5>
           <div className="score">
             {(correctWords / minutes || 0).toFixed(2)}
           </div>
@@ -61,6 +64,7 @@ function Timer(props) {
       <div className="ScoreDetail">
         <div className="time">
           {/* <img src={accuracy} alt="" className="img-time" /> */}
+          <h5>Accuracy</h5>
           <div className="score">
             {((correctWords / cloud.current.length) * 100).toFixed(2)}
           </div>
@@ -107,6 +111,7 @@ const Demo = () => {
 
   return (
     <div className="demo-container">
+      <Navbar/>
       <div className="demo-1">
         <div className="demo-head">Ready, Set, Type!</div>
         <div className="demo-head-content">
