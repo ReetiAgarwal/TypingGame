@@ -9,8 +9,8 @@ const authRoute = require("./Routes/auth")
 const scoreRoute = require("./Routes/scores")
 
 dotenv.config();
-mongoose.connect('mongodb://localhost:27017/typing',{useNewUrlParser:true});
-// mongoose.connect(process.env.MONGO_URL);
+// mongoose.connect('mongodb://localhost:27017/typing',{useNewUrlParser:true});
+mongoose.connect(process.env.MONGO_URL);
 
 // app.get("/",(req,res)=>{
 //     res.send("HELLO server");
